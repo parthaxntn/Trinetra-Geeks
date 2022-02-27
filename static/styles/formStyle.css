@@ -18,9 +18,9 @@ nav{
     display: flex;
     flex-direction: row;
     /* height: 70vh; */
-    aspect-ratio: 1.7/1 !important;
+    aspect-ratio: 1.5/1 !important;
     width: 67% !important;
-    top: 50%;
+    top: 54%;
     left: 50%;
     border-radius: 50px;
     transform: translate(-50%, -50%);
@@ -32,13 +32,13 @@ nav{
     color: #1e57ad;
 }
 .login-form h2{
-    font-size: 40px;
+    font-size: 28px;
     text-transform: uppercase;
     color: rgb(24, 24, 148);
     margin: 34px 0;
 }
 .login-form .text{
-    font-size: 25px;
+    font-size: 20px;
 margin: 5px 0;
 }
 .login-form .login{
@@ -67,6 +67,11 @@ width: 50%;
 border-radius: 20px;
 cursor: pointer;
 background-color: rgb(126, 126, 126);
+
+
+
+
+
 }
 .login-form .signup-msg{
     font-size: 15px;

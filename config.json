@@ -1,8 +1,1 @@
-{
-  "params":
-  {
-    "admin_users":["harry","partoo"],
-    "admin_passwords": ["subscribenow","impartoo"]
-  }
-
-}
+{"params": {"admin_users": ["partoo", "abc"], "admin_passwords": ["impartoo", "12345"], "admin_dob": ["19", "14"]}}

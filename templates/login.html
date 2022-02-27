@@ -24,13 +24,22 @@
         </nav>
       </div>
       <!-- <div class="main"> -->
+        {% with messages = get_flashed_messages(with_categories=true)%}
+        {% if messages %}
+        {%for category,message in messages%}
+        <div class="flash_msg">
+            {{message}}
+        </div>
+        {%endfor%}
+        {%endif%}
+        {%endwith%}
     <div class="login-form main">
         <form action="/login" method="post" class="form">
             <h2>Log in</h2>
             <p class="text">Username</p>
-            <input type="text" name="name" id="username" placeholder="Username">
+            <input type="text" required name="name" id="username" placeholder="Username">
             <p class="text">Password</p>
-            <input type="password" name="pass" id="password" placeholder="Password">
+            <input type="password" required name="password" id="password" placeholder="Password">
             <p class="login">Login with Google</p>
             <p class="login">Login with Facebook</p>
             <button type="submit">Login</button>

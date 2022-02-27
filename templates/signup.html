@@ -25,15 +25,26 @@
         </nav>
       </div>
       <!-- <div class="main"> -->
+        {% with messages = get_flashed_messages(with_categories=true)%}
+        {% if messages %}
+        {%for category,message in messages%}
+        <div class="flash_msg">
+            {{message}}
+        </div>
+        {%endfor%}
+        {%endif%}
+        {%endwith%}
     <div class="login-form main">
-        <form action="/login" method="post" class="form">
+        <form action="/signup" method="post" class="form">
             <h2>Sign up</h2>
             <p class="text">Username</p>
-            <input type="text" name="name" id="username" placeholder="Username">
+            <input type="text" required name="name" id="username" placeholder="Username">
+            <p class ="text"> Age  </p>
+            <input type="number" required name="dob">
             <p class="text">Enter Password</p>
-            <input type="password" name="pass" id="password" placeholder="Password">
+            <input type="password" required name="pass" id="password" placeholder="Password">
             <p class="text">Confirm Password</p>
-            <input type="text" name="conf_pass" id="conf_password" placeholder="Password">
+            <input type="text" required name="conf_pass" id="conf_password" placeholder="Password">
             <button type="submit">Signup</button>
             <p class="signup-msg">Already have an account?<a href="/login">login</a></p>
         </form>

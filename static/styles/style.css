@@ -188,3 +188,28 @@ top: 7px;
     padding: 7px 11px;
     margin: 13px;
 }
+
+.flash_msg{
+    width: 60%;
+    margin: auto;
+    font-size: x-large;
+    text-align: center;
+    background: rgb(236, 179, 233);
+    padding: 16px 0px;
+    border-radius: 20px;
+    border: 3.2px solid rgb(119, 111, 119);
+}
+
+.section::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .section::-webkit-scrollbar-track {
+    background: rgb(186, 188, 190);
+  }
+  
+  .section::-webkit-scrollbar-thumb {
+    background-color: rgb(208, 171, 241);
+    border-radius: 20px;
+    border: 3.2px solid rgb(134, 90, 160);
+  }

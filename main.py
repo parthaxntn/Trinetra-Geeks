@@ -11,6 +11,7 @@ with open('config.json','rt') as f:
     config=f.read()
 
 params = json.loads(config)["params"]
+# params_edit = json.loads()
 
 # books file
 with open('book.json',encoding="utf8") as f:
@@ -28,7 +29,7 @@ app.secret_key = 'trinetra-geeks'
 def home():
     if 'user' in session:
         user = session['user']
-    
+        # age = 
     else:
         user = "login"
     return render_template("index.html",user = user,book = book)
@@ -74,7 +75,7 @@ def dashboard():
         if (session['user'] in params['admin_users']):
             return render_template("dashboard.html",user = session['user'],book = book)
     else:
-        flash("you need to login first","suggestion")
+        # flash("you need to login first","suggestion")
         print("you need to login first","suggestion")
         return redirect("/login")
 
@@ -90,19 +91,42 @@ def signup():
         username = request.form.get('name')
         userpass = request.form.get('pass')
         userpass_confirm = request.form.get('conf_pass')
+        userdob = request.form.get('dob')
         if userpass == userpass_confirm:
-            if username in params['admin_users']:
-                admin_index = params['admin_users'].index(username)
-                flash("Your username is already registered","alert")
-                print("username already registerd")
-                return render_template("signup.html",user = user,book = book)
+            if len(userpass) >= 5:
+                if username in params['admin_users']:
+                    admin_index = params['admin_users'].index(username)
+                    flash("Your username is already registered","alert")
+                    print("username already registerd")
+                    return render_template("signup.html",user = user,book = book)
+                else:
+                    params['admin_users'].append(username)
+                    params['admin_passwords'].append(userpass)
+                    params['admin_dob'].append(userdob)
+
+                    names = params['admin_users']
+                    passes = params['admin_passwords']
+                    dob = params['admin_dob']
+
+                    print(names,passes,dob)
+
+                    config_dump = {
+                                "params":{
+                                    "admin_users":names,
+                                    "admin_passwords":passes,
+                                    "admin_dob":dob
+                                }
+                                }
+
+                    with open("config.json","w") as f:
+                        json.dump(config_dump,f)
+
+                    session['user'] = username
+                    print("session done")
+                    print("successful")
+                    return redirect("/")
             else:
-                params['admin_users'].append(username)
-                params['admin_passwords'].append(userpass)
-                session['user'] = username
-                print("session done")
-                print("successful")
-                return redirect("/")
+                flash("your password must be of 5 or more characters")
         else:
             flash("your passwords doesn't match",)
             print("your pass doesn't match")
