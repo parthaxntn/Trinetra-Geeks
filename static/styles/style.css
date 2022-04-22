@@ -201,7 +201,7 @@ top: 7px;
 }
 
 .section::-webkit-scrollbar {
-    width: 12px;
+    width: 8px;
   }
   
   .section::-webkit-scrollbar-track {
@@ -209,7 +209,7 @@ top: 7px;
   }
   
   .section::-webkit-scrollbar-thumb {
-    background-color: rgb(208, 171, 241);
+    background-color: rgb(168, 133, 250);
     border-radius: 20px;
-    border: 3.2px solid rgb(134, 90, 160);
+    /* border: 3.2px solid rgb(134, 90, 160); */
   }
